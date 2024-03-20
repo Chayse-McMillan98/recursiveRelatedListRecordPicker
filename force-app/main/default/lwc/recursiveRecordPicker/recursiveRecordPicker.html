@@ -9,21 +9,25 @@
         </label>
         -->
         <div class="slds-form-element__control">
-            <div style="position: relative;">
-                <input type="text" placeholder="Browse Records..." value={picklistFieldText} class="slds-input" onfocus={handleRecordSelectionFocus}/>
+            <div class="slds-is-relative">
+                <input type="text" class="slds-input slds-scrollable_x" placeholder="Browse Records..." value={picklistFieldText} onfocus={handleRecordSelectionFocus}>
 
                 <!--Picklist Options-->
                 <template lwc:if={selectionActive}>
-                    <div style="position: absolute; background-color: white; width: 100%;">
+                    <div class="slds-is-absolute slds-theme_default slds-scrollable_y slds-box picklistContainer">
                         <template lwc:if={dataLoaded}>
                             <template for:each={picklistRecordOptions} for:item="option">
-                                <div key={option.value} name={option.label} apiname={option.value} class="slds-p-vertical_x-smal slds-p-left_x-small" style="width:100%; height:20px; cursor: pointer;" onclick={handlePicklistSelection}>
+                                <div key={option.value} name={option.label} apiname={option.value} class="slds-p-vertical_x-small slds-p-left_small picklistItem" onclick={handlePicklistSelection}>
                                     {option.label}
                                 </div>
                             </template>
                         </template>
+
+                        <!--Spinner-->
                         <template lwc:else>
-                            <lightning-spinner variant="brand" size="large"> </lightning-spinner>
+                            <div style="height: 100px;">
+                                <lightning-spinner variant="brand" size="large"> </lightning-spinner>
+                            </div>
                         </template>
                     </div>
                 </template>

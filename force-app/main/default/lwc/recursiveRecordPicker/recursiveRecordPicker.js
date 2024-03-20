@@ -2,6 +2,12 @@
  * LWC to support recursive child object traversal for the same object type
  * 
  * @author Chayse McMillan
+ * 
+ * Api Variables:
+ * 
+ * 
+ * Events:
+ *      - "leafnodeselected" -- informs your parent component when a leaf node was selected
  */
 import { LightningElement, api, wire, track } from 'lwc';
 import { refreshApex } from '@salesforce/apex';
@@ -12,7 +18,7 @@ export default class RecursiveRecordPicker extends LightningElement {
     
     dataLoaded = false;
     selectionActive = false;
-    leafNodeSelected = false;
+    currentTargetLabel = '';
     picklistFieldText = '';
     @track picklistRecordOptions = [];
 
@@ -39,7 +45,7 @@ export default class RecursiveRecordPicker extends LightningElement {
     }
 
     /**
-     * REQUIRED: The root node sObject Id to base the recursive selection on -- Ex: "000000000000" (sf record Id)
+     * OPTIONAL: The root node sObject Id to base the recursive selection on -- Ex: "000000000000" (sf record Id)
      */
     @api set rootNodeId(val) {
         this._rootNodeId = val;
@@ -101,7 +107,13 @@ export default class RecursiveRecordPicker extends LightningElement {
 
         // A leaf node was selected -- no further recursion required
         if(!data || data.length == 0) {
-            this.leafNodeSelected = true;
+            this.selectionActive = false;
+            this.dispatchEvent(new CustomEvent("leafnodeselected", { 
+                detail: {
+                    id: this.rootNodeId,
+                    label: this.currentTargetLabel
+                }
+            }));
             return;
         }
 
@@ -124,7 +136,6 @@ export default class RecursiveRecordPicker extends LightningElement {
         this.dispatchEvent(event);
     }
 
-
     //
     // UI Event Handlers
     //
@@ -138,7 +149,8 @@ export default class RecursiveRecordPicker extends LightningElement {
         if(this.picklistFieldText) {
             this.picklistFieldText += ' > ';
         }
-        this.picklistFieldText += event.currentTarget.getAttribute("name");
+        this.currentTargetLabel = event.currentTarget.getAttribute("name");
+        this.picklistFieldText += this.currentTargetLabel;
 
         // Refresh the search values
         this.rootNodeId = event.currentTarget.getAttribute("apiname");
