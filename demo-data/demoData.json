@@ -1,0 +1,65 @@
+[
+  {
+    "attributes": {
+      "type": "Demo_Object__c",
+      "url": "/services/data/v56.0/sobjects/Demo_Object__c/a007e00000CUhFnAAL"
+    },
+    "Id": "a007e00000CUhFnAAL",
+    "Name": "Child Node #2 -- Depth 1",
+    "Demo_Object_Recursion__c": "a007e00000CUhFdAAL"
+  },
+  {
+    "attributes": {
+      "type": "Demo_Object__c",
+      "url": "/services/data/v56.0/sobjects/Demo_Object__c/a007e00000CUhFiAAL"
+    },
+    "Id": "a007e00000CUhFiAAL",
+    "Name": "Child Node #1 -- Depth 1",
+    "Demo_Object_Recursion__c": "a007e00000CUhFdAAL"
+  },
+  {
+    "attributes": {
+      "type": "Demo_Object__c",
+      "url": "/services/data/v56.0/sobjects/Demo_Object__c/a007e00000CUhFjAAL"
+    },
+    "Id": "a007e00000CUhFjAAL",
+    "Name": "Grand Child Node #1 -- Child Node #2 -- Depth 2",
+    "Demo_Object_Recursion__c": "a007e00000CUhFnAAL"
+  },
+  {
+    "attributes": {
+      "type": "Demo_Object__c",
+      "url": "/services/data/v56.0/sobjects/Demo_Object__c/a007e00000CUhG2AAL"
+    },
+    "Id": "a007e00000CUhG2AAL",
+    "Name": "Grand Child Node #2 -- Child Node #2 -- Depth 2",
+    "Demo_Object_Recursion__c": "a007e00000CUhFnAAL"
+  },
+  {
+    "attributes": {
+      "type": "Demo_Object__c",
+      "url": "/services/data/v56.0/sobjects/Demo_Object__c/a007e00000CUhFxAAL"
+    },
+    "Id": "a007e00000CUhFxAAL",
+    "Name": "Grand Child Node #2 -- Child Node #1 -- Depth 2",
+    "Demo_Object_Recursion__c": "a007e00000CUhFiAAL"
+  },
+  {
+    "attributes": {
+      "type": "Demo_Object__c",
+      "url": "/services/data/v56.0/sobjects/Demo_Object__c/a007e00000CUhFdAAL"
+    },
+    "Id": "a007e00000CUhFdAAL",
+    "Name": "Root Node",
+    "Demo_Object_Recursion__c": null
+  },
+  {
+    "attributes": {
+      "type": "Demo_Object__c",
+      "url": "/services/data/v56.0/sobjects/Demo_Object__c/a007e00000CUhFsAAL"
+    },
+    "Id": "a007e00000CUhFsAAL",
+    "Name": "Grand Child Node #1 -- Child Node #1 -- Depth 2",
+    "Demo_Object_Recursion__c": "a007e00000CUhFiAAL"
+  }
+]

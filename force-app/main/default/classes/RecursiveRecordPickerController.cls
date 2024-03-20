@@ -6,6 +6,7 @@ public with sharing class RecursiveRecordPickerController {
         public String recursiveFieldApiName;
         public String parentRecordId;
     }
+    
 
     /**
      * Submits a query against the defined query request parameters
